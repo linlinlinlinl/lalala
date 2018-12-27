@@ -2,8 +2,8 @@ var box = document.querySelector('#box');
 var slide = document.querySelector('.slide');
 var arraw = document.querySelector('.arraw');
 var lis = document.querySelectorAll('li');
-var json = [  //  包含了5张图片里面所有的样式
-	{   //  1
+var json = [  
+	{  
 		width:400,
 		top:20,
 		left:100,
@@ -11,7 +11,7 @@ var json = [  //  包含了5张图片里面所有的样式
 		z:2,
 		id:1
 	},
-	{  // 2
+	{  
 		width:600,
 		top:70,
 		left:50,
@@ -27,7 +27,7 @@ var json = [  //  包含了5张图片里面所有的样式
 		z:4,
 		id:3
 	},
-	{  // 4
+	{  
 		width:600,
 		top:70,
 		left:550,
@@ -35,7 +35,7 @@ var json = [  //  包含了5张图片里面所有的样式
 		z:3,
 		id:4
 	},
-	{   //5
+	{   
 		width:400,
 		top:20,
 		left:650,
@@ -58,23 +58,17 @@ var prev = document.querySelector('.prev');
 var timer = null;
 var flag = true;
 next.addEventListener('click', function(){
-// alert('next');
-// console.log(json);
-// console.log('================')
 clearInterval(timer);
 if(flag == true){
 move(true);
 flag = false;
 }
-//console.log(json);
 });
 next.addEventListener('mouseleave', function(){
 
 clearInterval(timer);
 //alert('next')
 run();
-//console.log(json);
-
 });
 prev.addEventListener('click', function(){
 clearInterval(timer);
@@ -129,7 +123,7 @@ function animate(obj, json, callback){
   clearInterval(obj.timers);
   obj.timers = setInterval(function(){
 	var stoped = true;
-	// console.log('sss')
+
 	for(var k in json){
 	 // var leader = parseInt(getStyle(obj, k));
 	 var leader = 0;
@@ -139,8 +133,7 @@ function animate(obj, json, callback){
 	  // console.log(json[k]);
 	  leader = parseInt(getStyle(obj, k)) || 0;
 	 };
-//         console.log(leader);
-	 // json[k]是目标位置
+
 	 var step = (json[k]-leader)/10;
 	 step = step > 0? Math.ceil(step) : Math.floor(step);
 	 leader = leader + step;
